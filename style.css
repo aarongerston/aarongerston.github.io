@@ -12,6 +12,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 
 html {
@@ -19,7 +20,7 @@ html {
 }
 
 p {
-    color: #555;
+    color: #bbb;
 }
 
 /* TRANSITION */
@@ -62,12 +63,13 @@ nav ul li {
 }
 
 .logo img {
-    height: 250px;
+    max-height: 40px;
     width: auto;
+    margin: 5px;
 }
 
 a {
-    color: black;
+    color: #ddd;
     text-decoration: none;
     text-decoration-color: white;
 }
@@ -102,7 +104,7 @@ a:hover {
 .hamburger-icon span {
     width: 100%;
     height: 2px;
-    background-color: black;
+    background-color: #bbb;
     transition: all 0.3 ease-in-out;
 }
 
@@ -110,7 +112,7 @@ a:hover {
     position: absolute;
     top: 100%;
     right: 0%;
-    background-color: white;
+    background-color: #111;
     width: fit-content;
     max-height: 0;
     overflow: hidden;
@@ -122,7 +124,7 @@ a:hover {
     padding: 10px;
     text-align: center;
     font-size: 1.2rem;
-    color: black;
+    color: #ddd;
     text-decoration: none;
     transition: all 0.3 ease-in-out;
 }
@@ -160,7 +162,7 @@ a:hover {
 /* SECTIONS */
 
 main {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 section {
@@ -168,6 +170,7 @@ section {
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
+    color: #ccc;
 }
 
 .section-container {
@@ -182,6 +185,7 @@ section {
     align-items: center;
     gap: 5rem;
     height: 85vh;
+    padding-top: 0;
 }
 
 .section_pic_container {
@@ -198,20 +202,24 @@ section {
 
 .section_text p {
     font-weight: 600;
+    color: #ddd;
 }
 
 .section_text_p1 {
     text-align: center;
+    color: #999;
 }
 
 .section_text_p2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: red;
 }
 
 .title_1 {
     font-size: 3rem;
     text-align: center;
+    color: #eee;
 }
 
 .btn_container {
@@ -233,6 +241,7 @@ section {
 .btn_color:hover {
     background-color: #4f7ebf;
     transform: scale(1.05);
+    color: rgb(20, 60, 255);
 }
 
 /* ABOUT SECTION */
@@ -264,9 +273,10 @@ section {
 }
 
 .text_container p {
-    color: #555;
+    color: #bbb;
     line-height: 1.6;
     text-align: left;
+    margin-bottom: 10px;
 }
 
 /* PROFICIENCIES SECTION */
@@ -287,23 +297,25 @@ article {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 320px;
+    max-width: 340px;
     text-align: center;
+/*    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 1rem;*/
 }
 
 article .icon {
-    cursor: pointer;
     height: 90px;
     margin-bottom: 1rem;
 }
 
 article h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: #bbb;
 }
 
 article p {
-    color: #777;
+    color: #999;
     line-height: 1.5;
     text-align: justify;
 }
@@ -324,7 +336,7 @@ article p {
 }
 
 .subdetail_container {
-    background-color: white;
+    background-color: rgba(0, 140, 255, 0.2);
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 1.5rem;
@@ -352,7 +364,7 @@ article p {
 }
 
 .sub-detail_container {
-    background-color: white;
+    background-color: rgba(0, 140, 255, 0.2);
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 1.5rem;
@@ -368,9 +380,13 @@ article p {
 }
 
 a.platform-link {
-    color: black;
+    color: #bbb;
     text-decoration: none;
     text-decoration-color: none;
+}
+
+a.platform-link:hover {
+    color: blue;
 }
 
 /* CONTACT SECTION */
@@ -435,6 +451,7 @@ textarea {
 .submit-button:hover {
     background-color: #4f7ebf;
     transform: scale(1.05);
+    color: rgb(20, 60, 255);
 }
 
 .contact-info {
@@ -460,7 +477,7 @@ textarea {
 }
 
 .contact-info a {
-    color: #555;
+    color: rgb(120, 150, 185);
     text-decoration: none;
 }
 
@@ -473,7 +490,7 @@ textarea {
 footer {
     padding: 2rem 0;
     text-align: center;
-    background-color: #F9F9F7;
+    background-color: #000;
 }
 
 footer p {
