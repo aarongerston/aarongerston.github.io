@@ -257,6 +257,29 @@
 
                 <!-- "Contact Me" web form -->
                 <div class="contact-card">
+
+                    <!-- modify this form HTML and place wherever you want your form -->
+                    <form
+                            action="https://formspree.io/f/mldrlwjp"
+                            method="POST"
+                    >
+                        <label>
+                            Enter your full name:
+                            <input type="text" name="name">
+                        </label>
+                        <label>
+                            Enter your email:
+                            <input type="email" name="email">
+                        </label>
+                        <label>
+                            Message:
+                            <textarea name="message"></textarea>
+                        </label>
+                        <!-- other form fields go here -->
+                        <button type="submit">Send</button>
+                    </form>
+
+                    <!--
                     <form class="contact-form" method="POST" action="sendmail.php">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -272,6 +295,8 @@
                         </div>
                         <button class="submit-button" onclick="sendMail()">Send Message</button>
                     </form>
+                    -->
+
                 </div>
 
                 <!-- My contact info -->
