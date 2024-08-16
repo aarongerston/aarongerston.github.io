@@ -260,23 +260,25 @@
 
                     <!-- modify this form HTML and place wherever you want your form -->
                     <form
+                            class="contact-form"
                             action="https://formspree.io/f/mldrlwjp"
                             method="POST"
                     >
-                        <label>
-                            Enter your full name:
-                            <input type="text" name="name">
-                        </label>
-                        <label>
-                            Enter your email:
-                            <input type="email" name="email">
-                        </label>
-                        <label>
-                            Message:
-                            <textarea name="message"></textarea>
-                        </label>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name:" required>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email:" required>
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="5" placeholder="Message:" required></textarea>
+                        </div>
                         <!-- other form fields go here -->
-                        <button type="submit">Send</button>
+                        <button class="submit-button">Send message!</button>
+<!--                        <button type="submit">Send</button>-->
                     </form>
 
                     <!--
