@@ -62,8 +62,8 @@ nav ul li {
 }
 
 .logo img {
-    max-width: 50px;
-    height: auto;
+    max-height: 50px;
+    width: auto;
 }
 
 a {
