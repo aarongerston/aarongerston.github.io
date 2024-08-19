@@ -12,7 +12,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: #111;
 }
 
 html {
@@ -490,7 +490,7 @@ textarea {
 footer {
     padding: 2rem 0;
     text-align: center;
-    background-color: #000;
+    background-color: #111;
 }
 
 footer p {
@@ -500,4 +500,14 @@ footer p {
 footer p::before {
     font-size: 1.2rem;
     margin-right: 0.5rem;
+}
+
+/* Plotly */
+#plotly {
+    width: 100%; /* Adjust to desired width or use specific pixel value */
+    height: 100%; /* Adjust to desired height or use specific pixel value */
+    max-width: 500px; /* Optional: to restrict max width */
+    max-height: 400px; /* Optional: to restrict max height */
+    margin: 0 auto; /* Center the div horizontally if needed */
+    display: flex;
 }
