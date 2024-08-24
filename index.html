@@ -5,16 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Aaron Gerston | Data Scientist</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="mediaqueries.css">
+<!--        <link rel="stylesheet" href="mediaqueries.css">-->
         <link rel="icon" href="./assets/logo_favicon.png" type="image/x-icon"> <!-- favicon -->
-        <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-        </script>
-        <script type="text/javascript">
-        (function(){
-            emailjs.init("W8KK0-Rh9tWIw9Fik");
-        })();
-        </script>
+<!--        <script type="text/javascript"-->
+<!--            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">-->
+<!--        </script>-->
+<!--        <script type="text/javascript">-->
+<!--        (function(){-->
+<!--            emailjs.init("W8KK0-Rh9tWIw9Fik");-->
+<!--        })();-->
+<!--        </script>-->
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1087.0.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>    
@@ -156,62 +156,59 @@
 
                     <!-- Project 1 -->
                     <div class="subdetail_container">
-
-                        <iframe src="http://127.0.0.1:8050" width="100%" height="300px" style="border:0px solid #ccc"></iframe>
-
-<!--                        <img src="./assets/cyclistic.png" class="project_img"/>-->
+                        <iframe id="project1_iframe" width="100%" height="300px" style="border:0px solid #ccc"></iframe>
                         <h2 class="projects_subtitle">Israel-Palestine News Coverage</h2>
                         <p>We all know the tragic story and numbers behind the recent Israel-Hamas war. Or do we?
                             This project scrapes the web for (literally millions of) English-language articles published globally, sifts through to find ones about Israel-Palestine, and uses NLP to reveal which sources are more likely to report on one "side of the story" or the other. It's interactive and updated daily, check it out!</p>
                         <div class="btn_container">
-                            <button class="btn btn_color project_btn"
-                            onclick="location.href='https://flask-test-wdsaxrjr3a-uw.a.run.app/version'">View Project</button>
+                            <button id="project1_button" class="btn btn_color project_btn"
+                            onclick=`location.href=project1_url`>View Project</button>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
                     <div class="subdetail_container">
-                        <img src="./assets/stock-price-web-app.jpg" class="project_img"/>
-                        <h2 class="projects_subtitle">"In the World" -- the world at your fingertips</h2>
+                        <iframe id="project2_iframe" width="100%" height="300px" style="border:0px solid #ccc"></iframe>
+                        <h2 class="projects_subtitle">"In the World": the world at your fingertips</h2>
                         <p>Ever wondered what's going on in Belarus? Or Mozambique? How about current events in Taiwan? I like understanding the world. So I made a website to help us do just that. It's interactive, check it out!</p>
                         <div class="btn_container">
-                            <button class="btn btn_color project_btn"
-                            onclick="location.href='https://in-the-world.web.app/'">View Project</button>
+                            <button id="project2_button" class="btn btn_color project_btn"
+                            onclick=`location.href=project2_url`>View Project</button>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
                     <div class="subdetail_container">
-                        <img src="./assets/mkbhd-youtube.jpg" class="project_img"/>
+                        <img src="https://github.com/aarongerston/CovidStats/raw/master/gifs/CovidWorldConfirmedCases.gif" class="project_img"/>
                         <h2 class="projects_subtitle">CovidStats</h2>
                         <p>In the early days of Covid-19, I became curious about how different countries were affected. So I found some statistics online and managed to answer a few questions. (The answers also raised a few more...)</p>
                         <div class="btn_container">
                             <button class="btn btn_color project_btn"
-                            onclick="location.href='https://medium.com/@olanreakinbo/marques-brownlee-youtube-analysis-891e421750b7'">View Project</button>
+                            onclick="location.href='https://github.com/aarongerston/covidstats'">View Project</button>
                         </div>
                     </div>
 
-                    <!-- Project 4 -->
-                    <div class="subdetail_container">
-                        <img src="./assets/clustering-analysis.jpg" class="project_img"/>
-                        <h2 class="projects_subtitle">Project 4</h2>
-                        <p>Description description description description description description description description description description description description description description description.</p>
+<!--                    &lt;!&ndash; Project 4 &ndash;&gt;-->
+<!--                    <div class="subdetail_container">-->
+<!--                        <img src="./assets/clustering-analysis.jpg" class="project_img"/>-->
+<!--                        <h2 class="projects_subtitle">Project 4</h2>-->
+<!--                        <p>Description description description description description description description description description description description description description description description.</p>-->
+<!--&lt;!&ndash;                        <div class="btn_container">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <button class="btn btn_color project_btn"&ndash;&gt;-->
+<!--&lt;!&ndash;                            onclick="location.href='https://medium.com/@olanreakinbo/inside-the-football-data-universe-clustering-players-for-insights-158ed1b8f1ff'">View Project</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash; Project 5 &ndash;&gt;-->
+<!--                    <div class="subdetail_container">-->
+<!--                        <img src="./assets/churn.png" class="project_img"/>-->
+<!--                        <h2 class="projects_subtitle">Project 5</h2>-->
+<!--                        <p>Description description description description description description description description description description description description description description description.</p>-->
 <!--                        <div class="btn_container">-->
 <!--                            <button class="btn btn_color project_btn"-->
-<!--                            onclick="location.href='https://medium.com/@olanreakinbo/inside-the-football-data-universe-clustering-players-for-insights-158ed1b8f1ff'">View Project</button>-->
+<!--                            onclick="location.href='https://medium.com/@olanreakinbo/customer-churn-analytics-309a4fe9bd07'">View Project</button>-->
 <!--                        </div>-->
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="subdetail_container">
-                        <img src="./assets/churn.png" class="project_img"/>
-                        <h2 class="projects_subtitle">Project 5</h2>
-                        <p>Description description description description description description description description description description description description description description description.</p>
-                        <div class="btn_container">
-                            <button class="btn btn_color project_btn"
-                            onclick="location.href='https://medium.com/@olanreakinbo/customer-churn-analytics-309a4fe9bd07'">View Project</button>
-                        </div>
-                    </div>
+<!--                    </div>-->
                 </div>
             </div>      
         </section>
@@ -286,24 +283,6 @@
 <!--                        <button type="submit">Send</button>-->
                     </form>
 
-                    <!--
-                    <form class="contact-form" method="POST" action="sendmail.php">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button class="submit-button" onclick="sendMail()">Send Message</button>
-                    </form>
-                    -->
-
                 </div>
 
                 <!-- My contact info -->
@@ -333,6 +312,6 @@
             <p>Copyright &#169; 2024 Aaron Gerston. All Rights Reserved.</p>
         </footer>
     </main>
-   <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
