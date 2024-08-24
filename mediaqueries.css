@@ -61,12 +61,12 @@
     .hamburger-icon {
         width: 25px;
     }
-    .logo img {
+/*    .logo img {
         max-width: 55px;
-    }
+    }*/
     #profile {
-        height:72vh;
-        margin-bottom: 0;
+        height: auto;
+        margin-bottom: 4rem;
     }
     .about-containers, .contact-info-upper-container,
     .btn-container {
@@ -156,7 +156,8 @@
         transform: scale(1);
     }
     .subdetail_container {
-        max-width: 325px;
+        max-width: 90%;
+/*        max-width: 325px;*/
     }
     .sub-detail_container {
         max-width: 250px;
