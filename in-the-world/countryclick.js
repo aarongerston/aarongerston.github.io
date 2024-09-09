@@ -52,7 +52,7 @@ function countryClick(event) {
             info.update({text: 'Scouring the web... One moment, please.'})
             hoverPopup.setContent('Scouring the web... One moment, please.')
 
-            webSearch()
+            webSearch(country)
         }
     } else {
         this._div.innerHTML = '<h4>' + question + ' in ' + scope + '?</h4>' + 'Click to find out';

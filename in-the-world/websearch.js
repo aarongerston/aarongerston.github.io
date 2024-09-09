@@ -1,17 +1,27 @@
-/* GENERAL */
 
-//var NewsAPI = require('newsapi');
-//const searchEngine = 'Contextual'
-var searchEngine = 'Google'
-//var GoogleAPIKey = "75e679c5c927c7ad03b2a4777fb9a25a399aedbdbd5798bc7140107b760a4542"  # SerpAPI
-var GoogleAPIKey = 'AIzaSyA-P-iBKYhcqTAkXk8FtvYK7SC7LUwUbCQ'
-var GoogleProjectKey = 'b09db30cf2fd150ff'
-//var searchEngine = "NewsAPI"
-//var NewsAPIEndpoint = 'https://newsapi.org/v2/top-headlines';
-//var NewsAPIKey = "e63c865761844ec48d7566d898acdba6"
-//var TheNewsAPIKey = "ufPKpkmIXjtrqnls9ogwJWS1SnYgcT9uc9GZHywN"
+const searchEngine = "NYT"
+const NYT_API_ENDPOINT = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+NYT_API_KEY = "PAz44Cb1mv88KzTAqBSAnYqJSn5Q1CXG"
 
-function webSearch() {
+function searchNYTArticles(subject, country) {
+
+    const query = `${subject}`;
+
+    // Fetch data from NYT API with filters
+    return fetch(`${NYT_API_ENDPOINT}?q=${encodeURIComponent(query)}&fq=glocations:("${country}")&api-key=${NYT_API_KEY}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => data.response.docs)  // Return the list of articles
+        .catch(error => {
+            console.error('Error fetching NYT articles:', error);
+        });
+}
+
+function webSearch(country) {
 
     console.log("Scouring the web with " + searchEngine);
 
@@ -25,9 +35,9 @@ function webSearch() {
     } else if (searchEngine == "NewsAPI") {
 
         fetch(`${NewsAPIEndpoint}?q=${encodeURIComponent(fullQuestion)}&language=en&apiKey=${NewsAPIKey}`)
-            .then(response => {
-            resultsHandler(response);
-        });
+        .then(response => response.json())  // Ensure the response is parsed as JSON
+        .then(resultsHandler)
+        .catch(error => console.error('Error fetching data: ', error));
 
 //        const newsapi = new NewsAPI(NewsAPIKey)
 //        newsapi.v2.topHeadlines({
@@ -37,27 +47,39 @@ function webSearch() {
 //            resultsHandler(results);
 //        });
 
-    } else if (searchEngine == 'Google') {
-
-        var GoogleNews, googleNews, track;
-
-        GoogleNews = require('google-news');
-        import GoogleNews from 'google-news';
-        googleNews = new GoogleNews();
-
-        googleNews.stream(fullQuestion, function(stream) {
-
-          stream.on(GoogleNews.DATA, function(data) {
-            return console.log('Data Event received... ' + data.title);
-          });
-
-          stream.on(GoogleNews.ERROR, function(error) {
-            return console.log('Error Event received... ' + error);
-          });
-        });
+//    } else if (searchEngine == 'Google') {
+//
+//        var GoogleNews, googleNews, track;
+//
+//        GoogleNews = require('google-news');
+//        import GoogleNews from 'google-news';
+//        googleNews = new GoogleNews();
+//
+//        googleNews.stream(fullQuestion, function(stream) {
+//
+//          stream.on(GoogleNews.DATA, function(data) {
+//            return console.log('Data Event received... ' + data.title);
+//          });
+//
+//          stream.on(GoogleNews.ERROR, function(error) {
+//            return console.log('Error Event received... ' + error);
+//          });
+//        });
 
 //        var googleURL = "https://www.googleapis.com/customsearch/v1?key=" + GoogleAPIKey + "&cx=" + GoogleProjectKey + "&q=" + fullURI + "&num=5&callback=GoogleSearchHandler"
 //        GoogleSearch(googleURL)
+
+    } else if (searchEngine == "NYT") {
+
+        searchNYTArticles(
+            fullQuestion,
+            country
+        ).then(nytResults => {
+            resultsHandler(nytResults)
+            // Parse and format the results
+//            const formattedResults = parseNYTResults(nytResults);
+//            console.log(formattedResults);  // Display the formatted results
+        });
 
     } else {
         console.log("Search engine not found.");
@@ -85,9 +107,56 @@ function resultsHandler(results) {
     console.log(searchEngine + ' search success!');
 }
 
-function parseNewsAPIResults(resultsObject) {
+function parseNYTResults(nytResults) {
+    let mainText = '';
+    let nItems = Math.min(nytResults.length, 5);  // Limiting to 5 articles
 
+    if (nItems > 0) {
+        mainText += '<ol class="hovered"><br>';
+        for (let i = 0; i < nItems; i++) {
+            let article = nytResults[i];
+            mainText += "<span class='popupBold'>" +
+                        "<li><a id='popupAnchor' href='" + article.web_url + "' target='_blank'>" + article.headline.main + "</a></span>" +
+                        "<span class='popupText'>" +
+                        "<br><a id='popupAnchor' href='" + article.web_url + "' target='_blank'>" + article.snippet + "</a><br>" +
+                        "<span class='popupLink'><a id='popupAnchor' href='" + article.web_url + "' target='_blank'>" + article.source + "</a></span><br><br>";
+        }
+        mainText += '</ol>';
+    }
+
+    return mainText;
 }
+
+function parseNewsAPIResults(newsAPIResultsObject) {
+
+    console.log(newsAPIResultsObject.articles)
+
+    let mainText = '';
+
+    // Ensure the articles key exists and is an array
+    if (newsAPIResultsObject && Array.isArray(newsAPIResultsObject.articles)) {
+        let nItems = Math.min(newsAPIResultsObject.articles.length, 5);
+
+        if (nItems > 0) {
+            mainText += '<ol class="hovered"><br>';
+            for (let i = 0; i < nItems; i++) {
+                let article = newsAPIResultsObject.articles[i];
+                mainText += "<span class='popupBold'>" +
+                            "<li><a id='popupAnchor' href='" + article.url + "' target='_blank'>" + article.title + "</a></span>" +
+                            "<span class='popupText'>" +
+                            "<br><a id='popupAnchor' href='" + article.url + "' target='_blank'>" + article.description + "</a><br>" +
+                            "<span class='popupLink'><a id='popupAnchor' href='" + article.url + "' target='_blank'>" + article.source.name + "</a></span><br><br>";
+            }
+            mainText += '</ol>';
+        }
+    } else {
+        console.error("Invalid response structure: ", newsAPIResultsObject);
+    }
+
+    return mainText;
+}
+
+
 
 function parseSearchResults(resultsObject) {
     if (searchEngine == "Google") {
@@ -96,6 +165,8 @@ function parseSearchResults(resultsObject) {
         return parseContextualResults(resultsObject)
     } else if (searchEngine == "NewsAPI") {
         return parseNewsAPIResults(resultsObject)
+    } else if (searchEngine == "NYT") {
+        return parseNYTResults(resultsObject)
     } else {
         console.log('Cannot find parser for '+searchEngine+'!');
         return "Oh no :(<br/>I'm having difficulties parsing the search results!"
