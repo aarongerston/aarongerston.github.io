@@ -1,6 +1,6 @@
 const searchEngine = 'Mediastack';
 
-function webSearch() {
+function webSearch(country) {
     console.log("Scouring the web with " + searchEngine);
 
     fullQuestion = question + ' in ' + country + '?';
