@@ -23,6 +23,15 @@ p {
     color: #bbb;
 }
 
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFD700, 0 0 40px #FFD700;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffdb4d, 0 0 40px #ffdb4d, 0 0 50px #ffdb4d;
+  }
+}
+
 /* TRANSITION */
 
 a,
@@ -60,6 +69,12 @@ nav ul li {
     list-style: none;
     margin-top: 0;
     font-size: 1.3rem;
+}
+
+#download-cv {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 .logo img {
@@ -157,6 +172,12 @@ a:hover {
 .hamburger-icon span:nth-child(2),
 .hamburger-icon span:nth-child(3) {
     transform: none;
+}
+
+#download-cv {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 /* SECTIONS */
