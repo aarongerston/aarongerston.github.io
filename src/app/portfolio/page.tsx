@@ -1,18 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { projects } from '@/data/projects'
-
-interface Project {
-  title: string;
-  description: string;
-  link?: string | null;
-  image?: string | StaticImageData;
-  external?: boolean;
-  useIframe?: boolean;
-  iframeSrc?: string;
-}
 
 const clients = [
   {
@@ -90,7 +80,7 @@ export default function Portfolio() {
                     target={project.external ? "_blank" : undefined}
                     rel={project.external ? "noopener noreferrer" : undefined}
                   >
-                    "Check it out →"
+                    Check it out →
                   </Link>
                 ) : null}
               </motion.div>

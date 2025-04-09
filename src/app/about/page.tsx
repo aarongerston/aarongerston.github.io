@@ -29,8 +29,11 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="space-y-6 sm:space-y-8 text-dark-300"
           >
-            <p>
-              I'm a <span className="font-semibold text-primary-400">data scientist</span> on a mission to <span className="font-semibold text-primary-400">make a difference</span>.
+            <p className="text-lg text-dark-300 mb-6">
+              I&apos;m a full-stack developer with a passion for creating elegant solutions to complex problems. My journey in tech began with a fascination for how things work, which led me to explore everything from hardware to software.
+            </p>
+            <p className="text-lg text-dark-300">
+              When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
             </p>
             <p>
               Armed with a broad academic background in engineering, biochemistry, psychology, and computer science, I excel at connecting the dots between complex problems and optimal solutions.
@@ -42,7 +45,7 @@ export default function About() {
               But data is everywhere, and my innate <span className="font-semibold text-primary-400">curiosity</span> and <span className="font-semibold text-primary-400">adaptability</span> allow me to translate these skills to nearly limitless contexts.
             </p>
             <p>
-              From medical signal processing to natural language processing and all the data science in between, I bring a comprehensive toolkit and a sense of excitement to every challenge, ensuring that data doesn't just speak — it <span className="font-semibold text-primary-400">inspires action</span>.
+              From medical signal processing to natural language processing and all the data science in between, I bring a comprehensive toolkit and a sense of excitement to every challenge, ensuring that data doesn&apos;t just speak — it <span className="font-semibold text-primary-400">inspires action</span>.
             </p>
             <div className="flex flex-col items-center space-y-3">
               <Link

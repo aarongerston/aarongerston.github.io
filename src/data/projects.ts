@@ -15,7 +15,7 @@ export const projects: Project[] = [
     {
       title: "In the World",
       description: "Ever wondered what's going on in Belarus? Or Mozambique? How about current events in Taiwan? I like understanding the world. So I made a website to help us do just that. It's interactive, check it out!",
-      link: "/in-the-world.html",
+      link: "/in-the-world",
       useIframe: true,
       iframeSrc: "/in-the-world.html",
     },

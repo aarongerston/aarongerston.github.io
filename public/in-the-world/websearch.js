@@ -5,19 +5,26 @@ NYT_API_KEY = "PAz44Cb1mv88KzTAqBSAnYqJSn5Q1CXG"
 
 function searchNYTArticles(subject, country) {
 
+    console.log("Searching NYT for:", subject, "in", country);
     const query = `${subject}`;
+    const full_url = `${NYT_API_ENDPOINT}?q=${encodeURIComponent(query)}})&api-key=${NYT_API_KEY}`
+    console.log("Full NYT search URL:", full_url); // TODO delete
 
     // Fetch data from NYT API with filters
-    return fetch(`${NYT_API_ENDPOINT}?q=${encodeURIComponent(query)}&fq=glocations:("${country}")&api-key=${NYT_API_KEY}`)
+    return fetch(full_url)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
-        .then(data => data.response.docs)  // Return the list of articles
+        .then(data => {
+            console.log("NYT raw response:", data);
+            return data.response?.docs || null;
+        })  // Return the list of articles
         .catch(error => {
             console.error('Error fetching NYT articles:', error);
+            return null;
         });
 }
 
@@ -87,6 +94,11 @@ function webSearch(country) {
 }
 
 function resultsHandler(results) {
+
+    if (!results) {
+        console.error("No results to handle. Exiting resultsHandler.");
+        return;
+    }
 
     console.log("RESULTS")
     console.log(results)
