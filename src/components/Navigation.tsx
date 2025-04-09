@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -19,17 +18,16 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed w-full z-50 bg-dark-900/80 backdrop-blur-sm">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
+      <header className="fixed w-full z-50 bg-dark-900/80 backdrop-blur-sm overflow-visible padding-1rem">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8  overflow-visible padding-1rem" aria-label="Global">
+          <div className="flex lg:flex-1 overflow-visible padding-1rem">
             <Link href="/" className="-m-1.5 p-1.5">
               <div className="relative h-10 w-40">
-                <Image
+                <img
                   src="/assets/logo/AaronGerstonData&AIConsulting_bluewhite.svg"
                   alt="Aaron Gerston Data & AI Consulting"
-                  fill
-                  className="object-contain"
-                  priority
+                  className=""
+                  // priority
                 />
               </div>
             </Link>
@@ -84,9 +82,8 @@ export default function Navigation() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-0 right-0 z-50 w-full max-w-[200px] bg-dark-900 shadow-lg"
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 left-0 w-full bg-dark-900/95 backdrop-blur-sm z-50 overflow-visible"
           >
             <div className="px-6 py-6 space-y-6">
               <div className="flex items-center justify-between">

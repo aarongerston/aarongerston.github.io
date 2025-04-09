@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
 import { projects } from '@/data/projects'
 
 export default function Home() {
@@ -16,7 +15,7 @@ export default function Home() {
     <main className="min-h-screen">
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-visible padding-1rem">
         
         <div className="flex-1 max-w-7xl mx-auto text-center">
           <motion.h1 
@@ -24,13 +23,12 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative h-20 w-64 tablet:w-96 mx-auto mt-0 landscape:mt-12">
-              <Image
+            <div className="relative h-20 w-64 tablet:w-96 mx-auto mt-0 landscape:mt-12 overflow-visible padding-1rem">
+              <img
                 src="/assets/logo/AaronGerstonData&AIConsulting_bluewhite.svg"
                 alt="Aaron Gerston Data & AI Consulting"
-                fill
-                priority
-                className="object-contain"
+                // priority
+                className=""
               />
             </div>
           </motion.h1>
@@ -75,12 +73,11 @@ export default function Home() {
           style={{ opacity }}
           className="fixed left-3 pc:left-24 bottom-1 w-[30vw] tablet:w-[40vw] pc:w-[40vw] min-w-[150px] max-h-[40vh] tablet:max-h-[35vh] h-[50vh] pointer-events-none z-20"
         >
-          <Image
+          <img
             src="/assets/home/piece2.png"
             alt="Decorative left piece"
-            fill
-            className="object-contain object-left-bottom"
-            priority
+            className="absolute inset-0 object-contain object-left-bottom h-full w-full"
+            // priority
           />
         </motion.div>
 
@@ -90,12 +87,10 @@ export default function Home() {
           style={{ opacity }}
           className="fixed right-3 pc:right-24 bottom-1 w-[30vw] tablet:w-[40vw] pc:w-[40vw] min-w-[165px] max-h-[40vh] tablet:max-h-[30vh] h-[50vh] pointer-events-none z-20"
         >
-          <Image
+          <img
             src="/assets/home/piece1.png"
             alt="Decorative right piece"
-            fill
-            className="object-contain object-right-bottom"
-            priority
+            className="absolute inset-0 object-contain object-right-bottom w-full h-full"
           />
         </motion.div>
       </section>
@@ -219,13 +214,13 @@ export default function Home() {
                   ) : work.image ? (
                     <div className="relative w-full h-full flex justify-center items-center">
                       <div className="relative h-[160px] w-auto">
-                        <Image
+                        <img
                           src={work.image}
                           alt={work.title}
                           width={500}
                           height={242}
                           className="h-full w-auto rounded-lg"
-                          unoptimized={typeof work.image === 'string' && work.image.endsWith('.gif')}
+                        //   unoptimized={typeof work.image === 'string' && work.image.endsWith('.gif')}
                         />
                       </div>
                     </div>

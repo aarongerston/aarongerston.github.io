@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 import { projects } from '@/data/projects'
 
@@ -54,19 +53,23 @@ export default function Portfolio() {
                         src={project.iframeSrc}
                         className="w-full h-full rounded-lg bg-dark-600"
                         title={`${project.title} Interactive View`}
+                        sandbox="allow-scripts allow-same-origin"
                       />
                     </div>
                   ) : project.image ? (
-                    <div className="relative w-full h-[250px] flex justify-center items-center">
-                      <div className="relative h-auto w-auto rounded-lg overflow-hidden bg-dark-700">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={500}
-                          height={242}
-                          className="h-full w-auto object-contain"
-                          unoptimized={typeof project.image === 'string' && project.image.endsWith('.gif')}
-                        />
+                    <div className="relative w-full flex justify-center items-center">
+                      <div className="relative w-full pb-[50%] rounded-lg overflow-hidden">
+                        <div className="absolute inset-0 flex justify-center items-center">
+                          <div className="relative h-full max-w-[500px] max-h-[450px]">
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              width="500"
+                              height="450"
+                              className="h-full w-auto rounded-lg"
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ) : null}
@@ -104,15 +107,14 @@ export default function Portfolio() {
                   href={client.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative h-20 w-full"
+                  className={`relative w-full flex items-center justify-center ${
+                    client.name === "Tel Aviv University" ? "h-24" : "h-20"
+                  }`}
                 >
-                  <Image
+                  <img
                     src={client.logo}
                     alt={client.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-contain invert"
-                    priority={client.name === "Tel Aviv University"}
+                    className={`object-contain invert h-full p-2`}
                   />
                 </Link>
               </motion.div>

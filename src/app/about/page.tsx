@@ -1,12 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function About() {
   return (
-    <main className="min-h-screen pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen pt-24 pb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -15,10 +14,9 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative h-[250px] w-[250px] sm:h-[250px] sm:w-[250px] lg:h-[475px] lg:w-[475px] mx-auto"
           >
-            <Image
+            <img
               src="/assets/AaronERH_circle_cropped.png"
               alt="Aaron Gerston Profile Picture"
-              fill
               className="object-cover rounded-full"
             />
           </motion.div>
@@ -29,11 +27,8 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="space-y-6 sm:space-y-8 text-dark-300"
           >
-            <p className="text-lg text-dark-300 mb-6">
-              I&apos;m a full-stack developer with a passion for creating elegant solutions to complex problems. My journey in tech began with a fascination for how things work, which led me to explore everything from hardware to software.
-            </p>
-            <p className="text-lg text-dark-300">
-              When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
+            <p>
+              I&apos;m a <span className="font-semibold text-primary-400">data scientist</span> on a mission to <span className="font-semibold text-primary-400">make a difference</span>.
             </p>
             <p>
               Armed with a broad academic background in engineering, biochemistry, psychology, and computer science, I excel at connecting the dots between complex problems and optimal solutions.

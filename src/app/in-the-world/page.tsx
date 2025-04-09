@@ -13,9 +13,10 @@ export default function InTheWorld() {
           className="w-full h-[calc(100vh-8rem)]"
         >
           <iframe
-            src="/in-the-world.html"
+            src="/intheworld.html"
             className="w-full h-full rounded-lg bg-dark-600"
             title="In the World Interactive View"
+            sandbox="allow-scripts allow-same-origin"
           />
         </motion.div>
       </div>

@@ -1,10 +1,9 @@
-import { StaticImageData } from 'next/image'
 
 export interface Project {
   title: string;
   description: string;
   link?: string | null;
-  image?: string | StaticImageData;
+  image?: string;
   external?: boolean;
   useIframe?: boolean;
   iframeSrc?: string;
@@ -17,7 +16,7 @@ export const projects: Project[] = [
       description: "Ever wondered what's going on in Belarus? Or Mozambique? How about current events in Taiwan? I like understanding the world. So I made a website to help us do just that. It's interactive, check it out!",
       link: "/in-the-world",
       useIframe: true,
-      iframeSrc: "/in-the-world.html",
+      iframeSrc: "/intheworld.html",
     },
     {
       title: "Preemptive Network Outage Alert System",
