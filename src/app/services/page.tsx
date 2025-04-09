@@ -44,7 +44,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12"
         >
           <h1 className="text-4xl font-bold text-primary-400 mb-4">Services</h1>
         </motion.div>

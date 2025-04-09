@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen pt-16 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -27,7 +27,7 @@ export default function About() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-6 text-dark-300"
+            className="space-y-6 sm:space-y-8 text-dark-300"
           >
             <p>
               I'm a <span className="font-semibold text-primary-400">data scientist</span> on a mission to <span className="font-semibold text-primary-400">make a difference</span>.
@@ -44,7 +44,7 @@ export default function About() {
             <p>
               From medical signal processing to natural language processing and all the data science in between, I bring a comprehensive toolkit and a sense of excitement to every challenge, ensuring that data doesn't just speak — it <span className="font-semibold text-primary-400">inspires action</span>.
             </p>
-            <div className="flex flex-col items-center space-y-3 sm:space-y-4">
+            <div className="flex flex-col items-center space-y-3">
               <Link
                 href="https://linkedin.com/in/aarongerston"
                 target="_blank"

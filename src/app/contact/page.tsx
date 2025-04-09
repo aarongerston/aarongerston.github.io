@@ -6,17 +6,6 @@ export default function Contact() {
   return (
     <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-400 mb-4">Get in Touch</h1>
-          <p className="text-sm sm:text-base lg:text-lg text-dark-100 max-w-2xl mx-auto">
-            Let's work together to create positive impact through data science and AI.
-          </p>
-        </motion.div> */}
 
         <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
           {/* Schedule a Consultation */}

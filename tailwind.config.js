@@ -39,6 +39,11 @@ module.exports = {
       fontWeight: {
         normal: '400',
       },
+      screens: {
+        'phone': '0px',
+        'tablet': '500px',
+        'pc': '1440px',
+      },
     },
   },
   plugins: [],
