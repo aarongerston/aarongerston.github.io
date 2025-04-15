@@ -44,7 +44,7 @@ export const projects: Project[] = [
     },
     {
       title: "Israel-Palestine News Coverage",
-      description: "We all know the tragic story and numbers behind the recent Israel-Hamas war. Or do we? This project scrapes the web for (literally millions of) English-language articles published globally, sifts through to find ones about Israel-Palestine, and uses NLP to reveal which sources are more likely to report on one 'side of the story' or the other. It's interactive and updated daily, check it out!",
+      description: "We all know the tragic story and numbers behind the recent Israel-Hamas war. Or do we? This project scrapes the web for (literally millions of) English-language articles published globally, sifts through to find ones about Israel-Palestine, and uses NLP to reveal which sources are more likely to report on one 'side of the story' or the other. It's interactive, check it out!",
       link: null,
       useIframe: true,
       iframeSrc: "https://isr-pal-article-counts.onrender.com",
