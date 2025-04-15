@@ -34,8 +34,37 @@ export default function Portfolio() {
           {/* <h1 className="text-4xl font-bold text-primary-400 mb-4">Portfolio</h1> */}
         </motion.div>
 
+        {/* Previous Clients */}
+        <section>
+          <h2 className="text-2xl font-bold text-center mb-6">Previously worked with...</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 px-16 tablet:px-24">
+            {clients.map((client, index) => (
+                <motion.div
+                    key={client.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-dark-800 p-3 sm:p-6 rounded-lg flex items-center justify-center"
+                >
+                  <Link
+                      href={client.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`relative w-full flex items-center justify-center h-20 max-w-[80%]`}
+                  >
+                    <img
+                        src={client.logo}
+                        alt={client.name}
+                        className={`object-contain invert h-full p-2`}
+                    />
+                  </Link>
+                </motion.div>
+            ))}
+          </div>
+        </section>
+
         {/* Featured Projects */}
-        <section className="mb-20">
+        <section className="mb-20 pt-12">
           <h2 className="text-2xl font-bold text-center mb-4">Featured Projects:</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             {projects.map((project, index) => (
@@ -91,36 +120,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Previous Clients */}
-        <section>
-          <h2 className="text-2xl font-bold text-center mb-6">Previously worked with...</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-            {clients.map((client, index) => (
-              <motion.div
-                key={client.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-dark-800 p-3 sm:p-6 rounded-lg flex items-center justify-center"
-              >
-                <Link
-                  href={client.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`relative w-full flex items-center justify-center ${
-                    client.name === "Tel Aviv University" ? "h-24" : "h-20"
-                  }`}
-                >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className={`object-contain invert h-full p-2`}
-                  />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </section>
       </div>
     </main>
   )
