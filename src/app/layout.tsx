@@ -1,17 +1,36 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Lora, IBM_Plex_Sans } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 
-const font = Poppins({ 
-  subsets: ['latin'], 
-  variable: '--font-poppins',
-  weight: ['300']
+const lora = Lora({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-lora',
+  display: 'swap',
+})
+
+const ibmPlex = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-ibm',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Aaron Gerston | Data Science & AI Consulting',
-  description: 'Professional data science and AI consulting services focused on creating positive social impact through responsible data science and ethical AI.',
+  title: 'Aaron Gerston — AI Engineer & Data Scientist',
+  description: 'Aaron Gerston is an AI engineer and data scientist with 7+ years building high-stakes data infrastructure. Founder of Amani Intelligence.',
+  authors: [{ name: 'Aaron Gerston' }],
+  alternates: {
+    canonical: 'https://www.aarongerston.com',
+  },
+  openGraph: {
+    title: 'Aaron Gerston — AI Engineer & Data Scientist',
+    description: 'Founder of Amani Intelligence. 7+ years building ML systems across medtech, neuroscience, and enterprise AI.',
+    url: 'https://www.aarongerston.com',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -20,11 +39,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${font.variable} font-sans bg-dark-900 text-dark-50`} suppressHydrationWarning>
+    <html lang="en" className={`${lora.variable} ${ibmPlex.variable}`}>
+      <body suppressHydrationWarning>
         <Navigation />
         {children}
       </body>
     </html>
   )
-} 
+}
