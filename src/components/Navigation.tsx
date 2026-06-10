@@ -2,123 +2,71 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'About', href: '/about' },
-  // { name: 'Blog', href: '/blog' },
-]
 
 export default function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <>
-      <header className="fixed w-full z-50 bg-dark-900/80 backdrop-blur-sm overflow-visible padding-1rem">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8  overflow-visible padding-1rem" aria-label="Global">
-          <div className="flex lg:flex-1 overflow-visible padding-1rem">
-            <Link href="/" className="-m-1.5 p-1.5">
-              <div className="relative h-10 w-40">
-                <img
-                  src="/assets/logo/AaronGerstonData&AIConsulting_bluewhite.svg"
-                  alt="Aaron Gerston Data & AI Consulting"
-                  className=""
-                  // priority
-                />
-              </div>
-            </Link>
-          </div>
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-dark-300"
-              onClick={() => setMobileMenuOpen(true)}
+      <header className="ag-nav">
+        <div className="ag-nav__inner">
+          <Link href="/" className="ag-nav__logo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo/AaronGerstonData&AIConsulting_blacktransparent_1200x630.png"
+              alt="Aaron Gerston"
+            />
+          </Link>
+          <div className="ag-nav__right">
+            <a href="#about" className="ag-nav__link">About</a>
+            <a href="#work" className="ag-nav__link">Work</a>
+            <a href="#connect" className="ag-nav__link" id="nav-connect-link">Connect</a>
+            <a
+              href="https://www.amaniintelligence.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ag-btn-cta"
             >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              Amani Intelligence ↗
+            </a>
+            <button
+              id="nav-hamburger"
+              className="ag-mobile-toggle"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileOpen ? (
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold leading-6 text-dark-300 hover:text-primary-400 transition-colors duration-200"
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="text-sm font-semibold leading-6 text-white bg-primary-500 px-3 py-1 rounded-md hover:bg-primary-600 transition-colors duration-200"
-            >
-              Contact
-            </Link>
-          </div>
-        </nav>
+        </div>
       </header>
 
-      {/* Backdrop */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-dark-900/80 backdrop-blur-sm"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-full bg-dark-900/95 backdrop-blur-sm z-50 overflow-visible"
-          >
-            <div className="px-6 py-6 space-y-6">
-              <div className="flex items-center justify-between">
-                <button
-                  type="button"
-                  className="-m-2.5 rounded-md p-2.5 text-dark-300"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className="sr-only">Close menu</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="space-y-2">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-300 hover:bg-dark-800 hover:text-primary-400 transition-colors duration-200"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <Link
-                  href="/contact"
-                  className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white bg-primary-500 hover:bg-primary-600 transition-colors duration-200"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mobileOpen && (
+        <div className="ag-mobile-menu">
+          <a href="#about" className="ag-mobile-menu__link" onClick={() => setMobileOpen(false)}>About</a>
+          <a href="#work" className="ag-mobile-menu__link" onClick={() => setMobileOpen(false)}>Work</a>
+          <a href="#connect" className="ag-mobile-menu__link" onClick={() => setMobileOpen(false)}>Connect</a>
+          <div style={{ marginTop: 16 }}>
+            <a
+              href="https://www.amaniintelligence.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ag-btn-cta"
+              onClick={() => setMobileOpen(false)}
+            >
+              Amani Intelligence ↗
+            </a>
+          </div>
+        </div>
+      )}
     </>
   )
-} 
+}
